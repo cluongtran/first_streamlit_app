@@ -1,7 +1,6 @@
 import streamlit
 import pandas
 import requests
-streamlit.stop()
 import snowflake.connector
 from urllib.error import URLError
 
@@ -36,7 +35,7 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # Makes table header readable
 streamlit.dataframe(fruityvice_normalized)
 
-
+streamlit.stop()
 # snowflake connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
